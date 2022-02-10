@@ -1,0 +1,569 @@
+body {
+   width: 95vw;
+   height: 100vh;
+   overflow-x: hidden;
+   /* overflow-y: hidden; */
+   background-color: azure;
+   background-image: linear-gradient(-45deg, #4d91c9, #d13c75);
+}
+
+.title-website {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin-bottom: 50px;
+
+   color: lightblue;
+   font-size: 1.3em;
+   font-family: monospace;
+}
+
+.title-website p {
+   margin-top: -20px;
+}
+
+.container-book {
+   position: relative;
+   top: -150px;
+}
+
+#book {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100vw;
+   height: 40vh;
+   position: absolute;
+   perspective: 200vw;
+   margin: 200px 500px 0 0;
+
+   transform: rotate(90deg);
+   box-sizing: border-box;
+}
+
+#book:before {
+   content: "";
+   width: 1%;
+   height: 100%;
+   background: #222;
+   position: absolute;
+   left: 49%;
+   top: 0;
+   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.75);
+   outline: 1px solid black;
+}
+
+.page {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 50%;
+   height: 100%;
+   background: radial-gradient(circle at 0% 100%, #777, #ddd 70%);
+   outline: 1px solid black;
+   box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.15);
+   position: absolute;
+   left: 50%;
+   top: 0;
+
+   transition: z-index 0.2s linear 0.4s, transform 1s linear;
+   transform-origin: 0% 30%;
+   z-index: 6;
+   cursor: pointer;
+   font-family: arial;
+   text-align: center;
+   box-sizing: border-box;
+}
+
+.front,
+.back {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+
+   font-family: arial;
+
+   opacity: 0;
+   transition: opacity 0.5s linear 0.4s;
+}
+
+.front {
+   padding: 0 15px 0 15px;
+   opacity: 1;
+   box-sizing: border-box;
+}
+.back {
+   transform: scaleX(-1);
+}
+
+input {
+   visibility: hidden;
+}
+
+label {
+   width: 100%;
+   height: 100%;
+   z-index: 99;
+   position: absolute;
+   left: 0;
+   top: 0;
+   margin: 0;
+   padding: 0;
+}
+
+input:checked + .page {
+   transform: rotateY(-180deg);
+}
+
+input:checked + .page .front {
+   opacity: 0;
+}
+input:checked + .page .back {
+   opacity: 1;
+}
+
+#seven:checked + .page {
+   z-index: 7;
+}
+#six:checked + .page {
+   z-index: 6;
+}
+#five:checked + .page {
+   z-index: 5;
+}
+#four:checked + .page {
+   z-index: 4;
+}
+#three:checked + .page {
+   z-index: 3;
+}
+#two:checked + .page {
+   z-index: 2;
+}
+#one:checked + .page {
+   z-index: 1;
+}
+
+/* * ----------------------------sampul depan buku-------------------------------- */
+#page1 .front {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+
+   font-family: monospace;
+   font-size: 3vh;
+   line-height: 6vh;
+   letter-spacing: 3px;
+   font-weight: 900;
+   background: radial-gradient(circle at 70% 50%, black 50%, #222 40%);
+   color: magenta;
+}
+
+.book-tittle {
+   display: flex;
+   flex-direction: column;
+   margin-top: -65px;
+   margin-right: -2rem;
+}
+
+.book-tittle p {
+   margin-bottom: -35px;
+}
+
+/* * ----------------------------isi buku-------------------------------- */
+#page1 .back {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+
+   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+   font-size: 1.2em;
+   color: white;
+   background: #222;
+   padding: 12px;
+   box-sizing: border-box;
+}
+
+#page2 .front {
+   font-size: 1.2em;
+   font-family: serif;
+   font-weight: 900;
+   background: dodgerblue;
+}
+
+#page2 .back {
+   font-size: 1.2em;
+   font-weight: 100;
+   font-family: sans-serif;
+   background: white;
+   color: tomato;
+}
+
+#page3 .front {
+   background: #222;
+   color: lime;
+   font-size: 1.2em;
+   font-weight: 900;
+   font-family: serif;
+   overflow: hidden;
+}
+
+#page3 .back {
+   background: #222;
+   color: white;
+   font-size: 1.2em;
+   font-weight: 900;
+   font-family: serif;
+   overflow: hidden;
+   padding: 10px;
+   box-sizing: border-box;
+}
+
+#page4 {
+   background: white;
+}
+
+#page4 .front {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   font-family: serif;
+   font-weight: normal;
+   font-size: 1.2em;
+   color: red;
+   background-color: salmon;
+   padding: 10px;
+   box-sizing: border-box;
+}
+
+#page4 .back {
+   background-color: #48b;
+   background-size: 110px 50vh;
+   background-repeat: repeat-x;
+   color: white;
+   font-size: 1.2em;
+   font-weight: 900;
+   font-family: serif;
+   padding: 10px;
+   box-sizing: border-box;
+}
+
+#page5 .front {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   font-family: serif;
+   font-weight: normal;
+   font-size: 1.2em;
+   color: red;
+   background-color: aqua;
+   padding: 10px;
+   box-sizing: border-box;
+}
+
+#page5 .back {
+   background-color: rgb(120, 240, 120);
+   background-size: 110px 50vh;
+   background-repeat: repeat-x;
+   color: rgb(43, 43, 123);
+   font-size: 1.2em;
+   font-weight: 900;
+   font-family: serif;
+   padding: 10px;
+   box-sizing: border-box;
+}
+
+#page6 .front {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   font-family: serif;
+   font-weight: normal;
+   font-size: 1.2em;
+   color: rgb(90, 18, 90);
+   background-color: rgb(156, 110, 202);
+   padding: 10px;
+   box-sizing: border-box;
+}
+
+#page6 .back {
+   background-color: #48b;
+   background-size: 110px 50vh;
+   background-repeat: repeat-x;
+   color: snow;
+   font-size: 1.2em;
+   font-weight: 900;
+   font-family: serif;
+   padding: 10px;
+   box-sizing: border-box;
+}
+
+#page7 .front {
+   color: gold;
+   font-size: 1.2em;
+   font-weight: 900;
+   font-family: serif;
+   background: #222;
+   padding: 10px;
+   box-sizing: border-box;
+}
+
+/* * ----------------------------sampul belakang buku-------------------------------- */
+#page7 .back {
+   display: flex;
+   font-size: 1.5em;
+   font-weight: 900;
+   background: radial-gradient(circle at 30% 50%, black 50%, #222 40%);
+   color: magenta;
+   box-sizing: border-box;
+}
+
+.book-closed {
+   width: 40%;
+   margin-left: -85px;
+   font-family: monospace;
+}
+
+.button-ubah {
+   width: 100px;
+   height: 50px;
+   margin: auto;
+
+   font-size: 1.6em;
+
+   background-color: salmon;
+   border-top: 5px solid snow;
+   border-right: 5px solid black;
+   border-bottom: 5px solid black;
+   border-left: 5px solid snow;
+}
+
+.button-ubah:active {
+   font-size: 1.4em;
+
+   background-color: rgb(151, 71, 62);
+   border-top: 5px solid black;
+   border-right: 5px solid snow;
+   border-bottom: 5px solid snow;
+   border-left: 5px solid black;
+}
+
+/* * ----------------------------------------------------------------layout-album------------------------------------------------------------- */
+.container-album {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+
+   width: 100vw;
+   padding: 0 3% 0 3%;
+   min-height: 500px;
+   margin: 84vh 0 0 -10px;
+
+   background-image: linear-gradient(to bottom left, #4d91c9, #d13c75);
+   box-sizing: border-box;
+}
+
+/* ?------------------------------------------------------------------layout row----------------------------------------------------- */
+.row-gallery-ml,
+.row-gallery-foto {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+
+   width: 100%;
+   min-height: 500px;
+   padding: 10px 0;
+   margin: auto;
+
+   border: 3px solid #c4939b;
+   background-color: #d0678f;
+   border-radius: 7%;
+   border-top-left-radius: 0px;
+   border-bottom-left-radius: 0px;
+   box-sizing: border-box;
+}
+
+.row-gallery-foto {
+   width: 100%;
+   min-height: 500px;
+   margin-top: 10px;
+   border: 3px solid #75a0c4;
+   background-color: #4d91c9;
+}
+
+/* ?------------------------------------------------------------judul layout------------------------------------------------- */
+.container-album h1 {
+   margin-top: -400px;
+   font-family: monospace;
+   font-size: 2.4em;
+   margin: auto;
+}
+
+.container-album .row-gallery-ml h1 {
+   text-shadow: -1px -1.2px snow, 1.5px 1px black;
+   color: #d0678f;
+}
+
+.container-album .row-gallery-foto h1 {
+   color: #4d91c9;
+   text-shadow: -1px -1px snow, 1.5px 1.5px black;
+}
+
+/* ?----------------------------------------------------------------layout col------------------------------------------------ */
+.row-gallery-ml .col,
+.row-gallery-foto .col {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 98%;
+   min-height: 400px;
+
+   margin: 10px auto 0 auto;
+   border: 3px solid #c4939b;
+   border-radius: 7%;
+   border-top-left-radius: 0px;
+   border-bottom-left-radius: 0px;
+
+   background-color: rgba(0, 0, 0, 0.2);
+   box-sizing: border-box;
+}
+.row-gallery-foto .col {
+   border: 3px solid #75a0c4;
+}
+
+/* * --------------------------------------------------tombol navigasi--------------------------------------------------------*/
+.row-gallery-ml .col span,
+.row-gallery-foto .col span {
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+
+   color: white;
+   font-size: 1.4em;
+   font-weight: bolder;
+   text-decoration: none;
+
+   background-color: rgba(0, 0, 0, 0.15);
+   box-shadow: -1px -1px 2px snow, 1px 1px 2px black;
+   z-index: 10;
+}
+
+.row-gallery-ml .col span:hover,
+.row-gallery-foto .col span:hover {
+   background-color: rgba(0, 0, 0, 0.3);
+   cursor: pointer;
+}
+
+.row-gallery-ml .col span:active,
+.row-gallery-foto .col span:active {
+   padding: 0;
+   font-size: 1.2em;
+   box-shadow: -1px -1px 2px black, 1px 1px 2px snow;
+}
+
+.row-gallery-ml .col span:first-child,
+.row-gallery-foto .col span:first-child {
+   margin-right: 69%;
+   padding-right: 5px;
+   box-sizing: border-box;
+}
+.row-gallery-ml .col span:last-child,
+.row-gallery-foto .col span:last-child {
+   margin-left: 70%;
+   padding-left: 5px;
+   box-sizing: border-box;
+}
+
+/* *---------------------------------------------------------------layout foto----------------------------------------------------- */
+.container-album .gallery {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 90%;
+   min-height: 150px;
+   max-height: 350px;
+   overflow: hidden;
+   background-color: transparent;
+
+   border-top: 3px solid snow;
+   border-right: 3px solid black;
+   border-bottom: 3px solid black;
+   border-left: 3px solid snow;
+
+   border-radius: 5%;
+   border-top-left-radius: 0px;
+   border-bottom-left-radius: 0px;
+}
+
+.container-album .format-image {
+   width: 100%;
+   height: 100%;
+   background-size: cover;
+}
+
+.image-ml {
+   animation: fade 0.7s;
+}
+
+.image-foto {
+   animation: fade 0.7s;
+}
+
+/* ? ------------------------------------------------------animasi layout foto----------------------------------------------------- */
+
+@keyframes fade {
+   0% {
+      opacity: 0%;
+   }
+
+   100% {
+      opacity: 100%;
+   }
+}
+
+/* *--------------------------------------------------------------footer------------------------------------------------------------- */
+footer {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 120%;
+   height: 10%;
+   margin-left: -10%;
+   background-image: linear-gradient(to right, #cf3d76, #92659e);
+
+   color: lightblue;
+   font-family: arial;
+   font-size: 1em;
+}
+
+footer a {
+   font-size: 0.9em;
+   letter-spacing: 1.2px;
+   color: #cf3d76;
+   text-decoration: none;
+   text-shadow: -0.7px -0.7px snow, 0.7px 0.7px black;
+}
+
+footer a:hover,
+footer a:active {
+   color: #cf3d76;
+   text-shadow: -0.7px -0.7px black, 0.7px 0.7px snow;
+}
