@@ -302,6 +302,7 @@ input:checked + .page .back {
    background-size: 110px 50vh;
    background-repeat: repeat-x;
    color: snow;
+   line-height: 0.9em;
    font-size: 1.2em;
    font-weight: 900;
    font-family: serif;
@@ -311,6 +312,7 @@ input:checked + .page .back {
 
 #page7 .front {
    color: gold;
+   line-height: 0.9em;
    font-size: 1.2em;
    font-weight: 900;
    font-family: serif;
